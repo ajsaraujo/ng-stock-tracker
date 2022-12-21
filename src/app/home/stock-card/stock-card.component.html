@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="top-container">
+    <h2>{{ quote.formattedName() }}</h2>
+    <button
+      id="remove{{ quote.code }}"
+      class="remove-button"
+      (click)="stopTracking.emit()"
+    >
+      X
+    </button>
+  </div>
+
+  <div class="data-container">
+    <div>
+      <div>
+        <p>Change today: {{ quote.percentChange / 100 | percent : '1.1-1' }}</p>
+        <p>Opening price: {{ quote.openingPriceToday | currency : 'USD' }}</p>
+      </div>
+
+      <div>
+        <p>Current price: {{ quote.currentPrice | currency : 'USD' }}</p>
+        <p>Highest price: {{ quote.highestPriceToday | currency : 'USD' }}</p>
+      </div>
+    </div>
+
+    <div class="trend-arrow">
+      <app-trend-arrow
+        [trendValue]="quote.percentChange"
+        height="50px"
+      ></app-trend-arrow>
+    </div>
+  </div>
+
+  <a id="sentiment{{ quote.code }}" [routerLink]="getSentimentRouterLink()"
+    >Go to social sentiment details</a
+  >
+</div>

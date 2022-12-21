@@ -1,0 +1,28 @@
+a {
+  text-decoration: none;
+  color: #0288d1;
+  cursor: pointer;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.card {
+  border: 1px solid #7d7d7d;
+  margin-top: 16px;
+  padding: 0 24px;
+  padding-bottom: 16px;
+}
+
+.remove-button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+}
+
+.remove-button:hover {
+  font-weight: 600;
+}

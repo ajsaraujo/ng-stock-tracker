@@ -1,0 +1,21 @@
+.toast-container {
+  position: absolute;
+  top: 8px;
+  right: 32px;
+
+  padding-top: 16px;
+  padding-left: 16px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+span {
+  margin-right: 12px;
+}
+
+button {
+  position: relative;
+  top: 2px;
+}

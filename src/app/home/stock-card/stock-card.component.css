@@ -1,0 +1,13 @@
+.top-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.data-container {
+  display: flex;
+  flex-direction: row;
+  column-gap: 24px;
+
+  align-items: center;
+}

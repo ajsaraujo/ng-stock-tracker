@@ -1,0 +1,27 @@
+<div *ngIf="data$ | async as data">
+  <div class="card">
+    <h2>{{ getFormattedStockName(data.stock) }}</h2>
+
+    <p *ngIf="data.monthlySentiment.length === 0">
+      No sentiment data available for {{ getShortStockName(data.stock) }} in the
+      last 3 months.
+    </p>
+
+    <div class="monthly-results-container">
+      <div
+        *ngFor="let sentiment of data.monthlySentiment"
+        class="monthly-sentiment"
+      >
+        <div>
+          <p>{{ sentiment.getMonthName() | uppercase }}</p>
+          <p>Change: {{ sentiment.change }}</p>
+          <p>MSPR: {{ sentiment.monthlySharePurchaseRatio }}</p>
+        </div>
+
+        <app-trend-arrow [trendValue]="sentiment.change"></app-trend-arrow>
+      </div>
+    </div>
+  </div>
+
+  <a routerLink="/" id="backBtn">Back to list of stocks</a>
+</div>

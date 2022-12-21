@@ -1,0 +1,7 @@
+<div class="card toast-container" [@visibility]="visibility$ | async">
+  <span>
+    {{ message$ | async }}
+  </span>
+
+  <button (click)="service.hide()" class="remove-button">X</button>
+</div>

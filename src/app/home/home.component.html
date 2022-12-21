@@ -1,0 +1,35 @@
+<div style="max-width: 600px; margin: 0 auto">
+  <h1 style="text-align: center">Stock tracker</h1>
+
+  <p>Enter a stock symbol to track it.</p>
+
+  <div class="input-container">
+    <input
+      id="stockInput"
+      style="width: 100%"
+      type="text"
+      placeholder="AAPL, TSA, GOOGL..."
+      [(ngModel)]="query"
+      (input)="putQueryInUpperCase()"
+      #stockInput
+      appPattern="alphanum"
+    />
+
+    <button
+      id="trackBtn"
+      style="min-width: 100px"
+      (click)="trackStock(stockInput.value)"
+    >
+      Track stock
+    </button>
+  </div>
+
+  <p *ngIf="loadingStockData">Loading stock data...</p>
+
+  <ng-container *ngFor="let quote of quotes$ | async">
+    <app-stock-card
+      [quote]="quote"
+      (stopTracking)="stopTracking(quote.code)"
+    ></app-stock-card>
+  </ng-container>
+</div>
