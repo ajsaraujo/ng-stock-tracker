@@ -21,7 +21,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.loadingStockData = true;
+    this.loadingStockData = this.tracker.isTrackingSomeStock();
 
     this.quotes$ = this.quotes.stockQuotes$.pipe(
       tap(() => {
