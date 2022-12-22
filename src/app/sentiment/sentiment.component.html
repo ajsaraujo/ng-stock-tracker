@@ -14,7 +14,7 @@
       >
         <div>
           <p>{{ sentiment.getMonthName() | uppercase }}</p>
-          <p>Change: {{ sentiment.change }}</p>
+          <p>Change: {{ sentiment.change | signal: sentiment.change }}</p>
           <p>MSPR: {{ sentiment.monthlySharePurchaseRatio }}</p>
         </div>
 

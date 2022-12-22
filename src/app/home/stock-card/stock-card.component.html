@@ -13,7 +13,7 @@
   <div class="data-container">
     <div>
       <div>
-        <p>Change today: {{ quote.percentChange / 100 | percent : '1.1-1' }}</p>
+        <p>Change today: {{ quote.percentChange / 100 | percent : '1.1-1' | signal : quote.percentChange }}</p>
         <p>Opening price: {{ quote.openingPriceToday | currency : 'USD' }}</p>
       </div>
 

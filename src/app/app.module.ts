@@ -12,6 +12,7 @@ import { PatternDirective } from './home/pattern-directive/pattern.directive'
 import { ToastComponent } from './shared/toast/toast.component'
 import { HomeComponent } from './home/home.component'
 import { SentimentComponent } from './sentiment/sentiment.component'
+import { SignalPipe } from './shared/pipes/signal.pipe'
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { SentimentComponent } from './sentiment/sentiment.component'
     HomeComponent,
     PatternDirective,
     ToastComponent,
+    SignalPipe
   ],
   imports: [
     BrowserModule,
