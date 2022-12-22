@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core'
 import { StockTrackingService } from './stock-tracking.service'
-import { forkJoin, Observable, zip } from 'rxjs'
+import { forkJoin, Observable, of, zip } from 'rxjs'
 import { map, switchMap, tap } from 'rxjs/operators'
 import { StockQuote } from '../models/stock-quote'
 import { SymbolLookupDTO } from '../models/symbol-lookup-dto'
@@ -17,10 +17,14 @@ export class StockQuoteService {
     private toast: ToastService
   ) {
     this.stockQuotes$ = this.stockTracker.stocks$.pipe(
-      switchMap((stockCodes: string[]) =>
-        zip(stockCodes.map((code) => this.getStock(code)))
+      switchMap((stockCodes: string[]) => {
+        if (stockCodes.length === 0) {
+          return of([])
+        }
+
+        return zip(stockCodes.map((code) => this.getStock(code)))
+      }
       ),
-      map((quotesMap) => Object.values(quotesMap))
     )
   }
 
